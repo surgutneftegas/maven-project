@@ -13,10 +13,17 @@ pipeline {
         }
        }
        stage ('Deploy in staging') {
-             steps {
-               build job:'deploy_to_staging'
-             }     
-           }
+          steps {
+            build job:'deploy_to_staging'
+          }     
+       }
+       stage ('Deply in prod') {
+         steps {
+           timeout(time:5, until:'DAYS')
+             input message:'Approve Prod deployment?'
+           build job:'deploy_to_prod'
+         }
+       }
   }
 }
     
