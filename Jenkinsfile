@@ -10,7 +10,7 @@ pipeline {
           archiveArtifacts artifacts:'**/target/*.war'  
         }
        }
-       stage ('Build') {
+       stage ('Build ') {
              steps {
                echo 'Build step ...'
              }
