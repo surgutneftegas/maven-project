@@ -24,10 +24,7 @@ pipeline {
             }
             stage ('Deploy in prod') {
               steps {
-              timeout(time:5, unit:'DAYS') {
-              input message:'Approve Prod deployment?'
-              }
-              sh 'copy **/target/*.war /home/ubuntu/tomcat-prod/webapps
+              sh 'copy **/target/*.war /home/ubuntu/tomcat-prod/webapps'
               }
             }
           }
