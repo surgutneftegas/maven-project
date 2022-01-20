@@ -19,12 +19,12 @@ pipeline {
           parallel {
             stage ('Deploy to staging') {
               steps {
-              sh 'cp **/target/*.war /home/ubuntu/tomcat-stage/webapps'
+              sh 'sudo cp **/target/*.war /home/ubuntu/tomcat-stage/webapps'
               }     
             }
             stage ('Deploy in prod') {
               steps {
-              sh 'cp **/target/*.war /home/ubuntu/tomcat-prod/webapps'
+              sh 'sudo cp **/target/*.war /home/ubuntu/tomcat-prod/webapps'
               }
             }
           }
