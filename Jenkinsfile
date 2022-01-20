@@ -16,7 +16,7 @@ pipeline {
         }
        }
        stage ('Deployments') {
-          parellel {
+          parallel {
             stage ('Deploy to staging') {
               steps {
               sh 'copy **/target/*.war /home/ubuntu/tomcat-stage/webapps'
